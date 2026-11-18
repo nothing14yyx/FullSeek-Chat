@@ -94,7 +94,11 @@ export const ApiGatewayField = () => {
             </button>
           </div>
           <div className={styles.description}>
-            {t('apiGatewayDescription')}
+            {t(
+              apiProtocol === 'responses'
+                ? 'apiGatewayDescriptionResponses'
+                : 'apiGatewayDescription'
+            )}
           </div>
           {error ? <div className={styles.error}>{t('apiGatewayInvalid')}</div> : null}
         </div>

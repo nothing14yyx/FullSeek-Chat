@@ -107,8 +107,8 @@ export const zh = {
   apiKeyInvalid: 'API Key 无效，请检查后重试',
   apiKeyVerificationFailed: '校验失败：{message}',
   apiGatewayLabel: 'API 网关地址',
-  apiGatewayDescription:
-    '填写所选 Responses / Messages 协议的 API 网关地址。',
+  apiGatewayDescription: '填写所选 Messages 协议的 API 网关地址。',
+  apiGatewayDescriptionResponses: '填写所选 Responses 协议的 API 网关地址。',
   apiGatewayInvalid: '请输入有效的 HTTPS 网关地址（本机地址可使用 HTTP）',
   apiGatewayReset: '恢复默认',
   apiGatewayFetchModels: '获取模型',

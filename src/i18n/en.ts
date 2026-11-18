@@ -112,8 +112,8 @@ export const en = {
   apiKeyInvalid: 'Invalid API Key. Please check it and try again.',
   apiKeyVerificationFailed: 'Verification failed: {message}',
   apiGatewayLabel: 'API gateway URL',
-  apiGatewayDescription:
-    'Enter the API gateway URL for the selected Responses or Messages protocol.',
+  apiGatewayDescription: 'Enter the API gateway URL for the selected Messages protocol.',
+  apiGatewayDescriptionResponses: 'Enter the API gateway URL for the selected Responses protocol.',
   apiGatewayInvalid: 'Enter a valid HTTPS gateway URL (HTTP is allowed for localhost).',
   apiGatewayReset: 'Restore default',
   apiGatewayFetchModels: 'Get models',
