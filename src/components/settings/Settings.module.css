@@ -198,6 +198,47 @@
   color: var(--dsw-alias-label-tertiary);
 }
 
+.usage {
+  display: flex;
+  flex-direction: column;
+}
+
+.usageSection {
+  padding: 14px 0;
+
+  & + & {
+    box-shadow: inset 0 1px 0 0 var(--dsw-alias-border-l2-darkmode-thin);
+  }
+}
+
+.usageTitle {
+  margin: 0 0 6px;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 500;
+  color: var(--dsw-alias-label-primary);
+}
+
+.usageDescription {
+  margin: 0;
+  font-size: 13px;
+  line-height: 22px;
+  color: var(--dsw-alias-label-secondary);
+}
+
+.usageLink {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--dsw-alias-brand-text);
+  font-size: 13px;
+  line-height: 22px;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .error {
   font-size: 12px;
   line-height: 18px;
@@ -328,29 +369,6 @@
   }
 }
 
-.divider {
-  flex-shrink: 0;
-  width: 1px;
-  height: 20px;
-  background-color: var(--dsw-alias-border-l2);
-}
-
-.confirm {
-  flex-shrink: 0;
-  padding: 0;
-  border: none;
-  background: none;
-  color: var(--dsw-alias-brand-text);
-  font: inherit;
-  line-height: 22px;
-  cursor: pointer;
-
-  &:disabled {
-    color: var(--dsw-alias-label-caption);
-    cursor: default;
-  }
-}
-
 @media not all and (min-width: 768px) {
   .dialog {
     align-self: flex-end;
@@ -468,28 +486,6 @@
 
   .cellButton svg {
     display: none;
-  }
-}
-
-.mobileConfirm {
-  display: block;
-  flex-shrink: 0;
-  width: calc(100% - 16px);
-  height: 52px;
-  margin: 16px 8px 0;
-  border: none;
-  border-radius: 100px;
-  background-color: var(--dsw-alias-button-primary-fill);
-  color: var(--dsw-static-neutral-bluish-00);
-  font: inherit;
-  font-size: 17px;
-  line-height: 24px;
-  font-weight: 500;
-  cursor: pointer;
-
-  &:disabled {
-    opacity: 0.45;
-    cursor: default;
   }
 }
 

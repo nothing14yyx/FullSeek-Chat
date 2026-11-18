@@ -1,6 +1,10 @@
 import { create } from 'zustand'
 import type { TtsVoice } from './api/speech.js'
-import { DEFAULT_API_ORIGIN, normalizeApiOrigin } from './api/config.js'
+import {
+  getDefaultApiOrigin,
+  isDefaultDeepSeekOrigin,
+  normalizeApiOrigin,
+} from './api/config.js'
 import { normalizeLocation, type UserLocation } from './location.js'
 
 export type Locale = 'zh-CN' | 'en-US'
@@ -97,10 +101,19 @@ const initialThemePreference = (): ThemePreference => {
 /** 未保存过时使用服务端默认音色 stella（海星） */
 const initialTtsVoice = (): TtsVoice => (read(KEYS.ttsVoice) === 'tide' ? 'tide' : 'stella')
 
+const initialApiProtocol: ApiProtocol =
+  read(KEYS.apiProtocol) === 'responses' ? 'responses' : 'messages'
+
+const initialApiOrigin = (): string => {
+  const saved = normalizeApiOrigin(read(KEYS.apiOrigin) ?? '')
+  // Migrate prior builds that saved the root URL while using the Messages protocol.
+  return !saved || isDefaultDeepSeekOrigin(saved) ? getDefaultApiOrigin(initialApiProtocol) : saved
+}
+
 export const useSettings = create<Settings>(() => ({
   apiKey: read(KEYS.apiKey),
-  apiOrigin: normalizeApiOrigin(read(KEYS.apiOrigin) ?? '') ?? DEFAULT_API_ORIGIN,
-  apiProtocol: read(KEYS.apiProtocol) === 'responses' ? 'responses' : 'messages',
+  apiOrigin: initialApiOrigin(),
+  apiProtocol: initialApiProtocol,
   messagesModel: read(KEYS.messagesModel)?.trim() ?? '',
   responsesModel: read(KEYS.responsesModel)?.trim() ?? '',
   locale: initialLocale(),
@@ -143,14 +156,21 @@ export const setApiOrigin = (apiOrigin: string) => {
   if (!normalized) {
     return false
   }
-  write(KEYS.apiOrigin, normalized === DEFAULT_API_ORIGIN ? null : normalized)
-  useSettings.setState({ apiOrigin: normalized })
+  const protocol = useSettings.getState().apiProtocol
+  const resolved = isDefaultDeepSeekOrigin(normalized) ? getDefaultApiOrigin(protocol) : normalized
+  write(KEYS.apiOrigin, isDefaultDeepSeekOrigin(resolved) ? null : resolved)
+  useSettings.setState({ apiOrigin: resolved })
   return true
 }
 
 export const setApiProtocol = (apiProtocol: ApiProtocol) => {
+  const currentOrigin = useSettings.getState().apiOrigin
+  const apiOrigin = isDefaultDeepSeekOrigin(currentOrigin)
+    ? getDefaultApiOrigin(apiProtocol)
+    : currentOrigin
   write(KEYS.apiProtocol, apiProtocol)
-  useSettings.setState({ apiProtocol })
+  write(KEYS.apiOrigin, isDefaultDeepSeekOrigin(apiOrigin) ? null : apiOrigin)
+  useSettings.setState({ apiProtocol, apiOrigin })
 }
 
 export const setMessagesModel = (messagesModel: string) => {

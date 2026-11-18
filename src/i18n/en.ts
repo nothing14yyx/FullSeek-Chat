@@ -99,6 +99,17 @@ export const en = {
   settingsLocationRegion: 'Select country or region',
   settingDialogAsideGeneralOptionLabel: 'General',
   settingDialogAsideDataOptionLabel: 'Data',
+  settingDialogAsideUsageOptionLabel: 'About & Help',
+  usagePrivacyTitle: 'Privacy',
+  usagePrivacyDescription:
+    'FullSeek-Chat does not collect user data. API keys, settings, and chat history stay on your device. When you use chat, file, or voice features, necessary content is sent directly to the API gateway you configure.',
+  usageOpenSourceTitle: 'Open source and transparency',
+  usageOpenSourceDescription:
+    'FullSeek-Chat is based on DeepSeek AI’s chat-demo and adapted for Windows and Android. The project is open source under the MIT License, and its code is available for review and feedback.',
+  usageUpstreamLink: 'View the upstream chat-demo project',
+  usageSupportTitle: 'Questions and feedback',
+  usageSupportDescription:
+    'For questions or feedback, search for “卷福AI分享记录” on Douyin or Xiaohongshu. Thank you for your support!',
   avatarMenuSettingsDialogThemeItemLabel: 'Theme',
   avatarMenuSettingsDialogThemeSelectLightOption: 'Light',
   avatarMenuSettingsDialogThemeSelectDarkOption: 'Dark',
@@ -112,16 +123,14 @@ export const en = {
   apiKeyInvalid: 'Invalid API Key. Please check it and try again.',
   apiKeyVerificationFailed: 'Verification failed: {message}',
   apiGatewayLabel: 'API gateway URL',
-  apiGatewayDescription:
-    'The default gateway connects to DeepSeek. Custom Messages gateways must support the Messages / Files APIs and the tools used by this app.',
-  apiGatewayDescriptionResponses:
-    'Responses requests append /responses to the gateway URL. The DeepSeek gateway URL is https://api.deepseek.com, without /v1. If another gateway requires a version prefix, include /v1 in its URL.',
+  apiGatewayDescription: 'Enter the API gateway URL for the selected Messages protocol.',
+  apiGatewayDescriptionResponses: 'Enter the API gateway URL for the selected Responses protocol.',
   apiGatewayInvalid: 'Enter a valid HTTPS gateway URL (HTTP is allowed for localhost).',
   apiGatewayReset: 'Restore default',
   apiGatewayFetchModels: 'Get models',
   apiGatewayModelsLoading: 'Loading…',
   apiGatewaySelectModel: 'Select a fetched model',
-  apiGatewayKeyRequired: 'Enter and save an API Key below first.',
+  apiGatewayKeyRequired: 'Enter and save an API Key above first.',
   apiGatewayModelFetchFailed: 'Unable to fetch models: {message}',
   apiModelRequired: 'Fetch and select a model in Settings, or enter a model name manually.',
   contextTrimmedNotice:

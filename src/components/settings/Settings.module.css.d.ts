@@ -20,6 +20,11 @@ declare const styles: {
   readonly "themeOption": string;
   readonly "themeOptionSelected": string;
   readonly "description": string;
+  readonly "usage": string;
+  readonly "usageSection": string;
+  readonly "usageTitle": string;
+  readonly "usageDescription": string;
+  readonly "usageLink": string;
   readonly "error": string;
   readonly "apiKey": string;
   readonly "gateway": string;
@@ -31,10 +36,7 @@ declare const styles: {
   readonly "apiKeySaved": string;
   readonly "apiKeyInput": string;
   readonly "apiKeyMask": string;
-  readonly "divider": string;
-  readonly "confirm": string;
   readonly "cellButton": string;
-  readonly "mobileConfirm": string;
   readonly "importConfirm": string;
   readonly "importConfirmText": string;
   readonly "deleteConfirm": string;

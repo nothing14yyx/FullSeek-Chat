@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { DEFAULT_API_ORIGIN, normalizeApiOrigin } from '../../services/api/config.js'
+import { getDefaultApiOrigin, normalizeApiOrigin } from '../../services/api/config.js'
 import {
   setApiOrigin,
   setApiProtocol,
@@ -10,7 +10,7 @@ import { useTranslate } from '../../i18n/index.js'
 import { Select, type SelectOption } from '../base/Select.js'
 import styles from './Settings.module.css'
 
-/** API 网关地址和协议：默认连接 DeepSeek 的 Messages 接口。 */
+/** API 网关地址和协议：默认使用 DeepSeek Messages 的 Anthropic 兼容地址。 */
 export const ApiGatewayField = () => {
   const t = useTranslate()
   const apiOrigin = useSettings((state) => state.apiOrigin)
@@ -35,13 +35,13 @@ export const ApiGatewayField = () => {
       setError(true)
       return
     }
-    setValue(normalized)
+    setValue(useSettings.getState().apiOrigin)
     setError(false)
   }
 
   const restoreDefault = () => {
-    setApiOrigin(DEFAULT_API_ORIGIN)
-    setValue(DEFAULT_API_ORIGIN)
+    setApiOrigin(getDefaultApiOrigin(apiProtocol))
+    setValue(useSettings.getState().apiOrigin)
     setError(false)
   }
 
@@ -76,15 +76,13 @@ export const ApiGatewayField = () => {
                 setValue(event.target.value)
                 setError(false)
               }}
+              onBlur={apply}
               onKeyDown={(event) => {
                 if (event.key === 'Enter' && !event.nativeEvent.isComposing) {
                   apply()
                 }
               }}
             />
-            <button type="button" className={styles.gatewayAction} onClick={apply}>
-              {t('confirm')}
-            </button>
             <button
               type="button"
               className={styles.gatewayActionSecondary}

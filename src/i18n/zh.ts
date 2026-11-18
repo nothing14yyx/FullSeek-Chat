@@ -94,6 +94,17 @@ export const zh = {
   settingsLocationRegion: '请选择国家或地区',
   settingDialogAsideGeneralOptionLabel: '通用设置',
   settingDialogAsideDataOptionLabel: '数据管理',
+  settingDialogAsideUsageOptionLabel: '使用说明',
+  usagePrivacyTitle: '隐私说明',
+  usagePrivacyDescription:
+    'FullSeek-Chat 应用不收集用户数据。API Key、设置和会话记录保存在你的设备本地。使用聊天、文件或语音功能时，必要内容会直接发送到你配置的 API 网关。',
+  usageOpenSourceTitle: '开源与透明',
+  usageOpenSourceDescription:
+    'FullSeek-Chat 基于 DeepSeek AI 的 chat-demo 构建，并适配 Windows 和 Android。项目采用 MIT 开源许可证，代码公开，欢迎查看与反馈。',
+  usageUpstreamLink: '查看上游 chat-demo 项目',
+  usageSupportTitle: '问题与反馈',
+  usageSupportDescription:
+    '如有任何问题，欢迎在抖音或小红书搜索“卷福AI分享记录”。感谢大家的支持！',
   avatarMenuSettingsDialogThemeItemLabel: '主题',
   avatarMenuSettingsDialogThemeSelectLightOption: '浅色',
   avatarMenuSettingsDialogThemeSelectDarkOption: '深色',
@@ -107,16 +118,14 @@ export const zh = {
   apiKeyInvalid: 'API Key 无效，请检查后重试',
   apiKeyVerificationFailed: '校验失败：{message}',
   apiGatewayLabel: 'API 网关地址',
-  apiGatewayDescription:
-    '默认网关连接 DeepSeek。Messages 自定义网关需兼容 Messages / Files 接口和本应用使用的工具接口。',
-  apiGatewayDescriptionResponses:
-    'Responses 请求路径为网关地址后追加 /responses。DeepSeek 网关地址为 https://api.deepseek.com，不带 /v1；其他网关如需版本前缀，请将 /v1 填入地址。',
+  apiGatewayDescription: '填写所选 Messages 协议的 API 网关地址。',
+  apiGatewayDescriptionResponses: '填写所选 Responses 协议的 API 网关地址。',
   apiGatewayInvalid: '请输入有效的 HTTPS 网关地址（本机地址可使用 HTTP）',
   apiGatewayReset: '恢复默认',
   apiGatewayFetchModels: '获取模型',
   apiGatewayModelsLoading: '获取中…',
   apiGatewaySelectModel: '选择已获取的模型',
-  apiGatewayKeyRequired: '请先在下方填写并保存 API Key。',
+  apiGatewayKeyRequired: '请先在上方填写并保存 API Key。',
   apiGatewayModelFetchFailed: '获取模型失败：{message}',
   apiModelRequired: '请先在设置中获取并选择模型，或手动填写模型名称。',
   contextTrimmedNotice: '为控制上下文，本次请求省略了最早的 {count} 轮对话；完整历史仍保存在本地。',
