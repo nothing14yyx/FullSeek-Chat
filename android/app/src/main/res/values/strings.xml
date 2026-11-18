@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">FullSeek-Chat</string>
+    <string name="title_activity_main">FullSeek-Chat</string>
+    <string name="package_name">com.fullseek.chat</string>
+    <string name="custom_url_scheme">com.fullseek.chat</string>
+</resources>
