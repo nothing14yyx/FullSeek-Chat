@@ -40,7 +40,7 @@ jobs:
         with:
           node-version: 24
           cache: pnpm
-      - uses: android-actions/setup-android@v3
+      - uses: android-actions/setup-android@v4.0.4
       - name: Install Android build packages
         run: sdkmanager "platform-tools" "platforms;android-36" "build-tools;35.0.0" "build-tools;36.0.0"
       - run: pnpm install --frozen-lockfile
