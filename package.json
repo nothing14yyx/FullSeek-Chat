@@ -9,7 +9,7 @@
     "dev": "rspack serve -c rspack.config.ts",
     "build": "node scripts/build-web.mjs",
     "desktop:dev": "corepack pnpm build && electron .",
-    "build:windows": "corepack pnpm build && electron-builder --win nsis --x64",
+    "build:windows": "corepack pnpm build && electron-builder --win nsis --x64 --publish never",
     "build:android": "corepack pnpm build && node scripts/build-android.mjs",
     "type": "tsc -p tsconfig.json",
     "lint": "oxlint src rspack.config.ts",
