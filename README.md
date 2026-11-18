@@ -1,32 +1,46 @@
 # FullSeek-Chat
 
-English | [简体中文](README.zh-CN.md)
+简体中文 | [English](README.en.md)
 
-<p align="center"><img src="src/logo/fullseek-white.svg" width="220" alt="FullSeek-Chat logo"></p>
+<p align="center"><img src="src/logo/fullseek-white.svg" width="220" alt="FullSeek-Chat 标志"></p>
 
-FullSeek-Chat is an open-source chat client based on [DeepSeek AI's chat-demo](https://github.com/deepseek-ai/chat-demo), adapted for Windows and Android. It is licensed under MIT; see [LICENSE](LICENSE) and the upstream project for attribution.
+FullSeek-Chat 是基于 [DeepSeek AI 的 chat-demo](https://github.com/deepseek-ai/chat-demo) 构建并适配 Windows、Android 的开源聊天客户端，采用 MIT 许可证。详见 [LICENSE](LICENSE) 和上游项目说明。
 
-## Download FullSeek-Chat
+## 下载与安装
 
-<p align="center">
-  <a href="https://github.com/nothing14yyx/FullSeek-Chat/releases/download/v0.1.3/FullSeek-Chat-Setup-0.1.3.exe"><strong>Download Windows x64 installer (.exe)</strong></a>
-  &nbsp; · &nbsp;
-  <a href="https://github.com/nothing14yyx/FullSeek-Chat/releases/download/v0.1.3/FullSeek-Chat-Android-0.1.3-debug.apk"><strong>Download Android APK</strong></a>
-</p>
+请前往 [GitHub Releases 下载页面](https://github.com/nothing14yyx/FullSeek-Chat/releases/latest)，在最新版本的 **Assets** 中选择安装包：
 
-## Privacy
+- **Windows x64**：下载 `.exe` 安装包并按提示完成安装。
+- **Android**：下载 `.apk` 文件，在手机上打开并完成安装。
 
-The FullSeek-Chat application itself does not collect personal information. It has no FullSeek data-collection backend or analytics service. API keys and settings are stored in local app storage, and chat history is stored on the device.
+## 隐私说明
 
-When you use chat, file, or voice features, the app sends the necessary content directly to the API gateway you configured. FullSeek-Chat does not receive a separate copy. The gateway you choose processes those requests under its own privacy policy.
+FullSeek-Chat 应用本身不收集用户数据。API Key、设置和会话记录保存在设备本地。使用聊天、文件或语音功能时，必要内容会直接发送到你配置的 API 网关；FullSeek-Chat 不会另外接收一份副本。
 
-## Build
+## API 网关
 
-- On Windows, build an installer with `pnpm build:windows`.
-- Build an Android debug APK with `pnpm build:android` (JDK 21 and Android SDK required).
-- GitHub Actions can build both packages from the **Build FullSeek-Chat installers** workflow.
+默认网关为 DeepSeek。在设置中填写 API Key，选择协议和网关。模型名称默认留空，可点击「获取模型」选择，或手动填写。
 
-To run the development preview, install Node.js 22.12+ and pnpm:
+- DeepSeek Responses 网关地址：`https://api.deepseek.com`，应用请求 `/responses`，不带 `/v1` 前缀。
+- DeepSeek Messages 网关地址：`https://api.deepseek.com/anthropic`，应用请求 `/v1/messages`。
+- 自定义网关可选择 Messages 或 Responses 协议；如果网关需要路径前缀，请将前缀写在网关地址中。
+
+## 功能
+
+- 多会话、编辑提问、重新生成和消息分支。
+- 流式回答、深度思考、搜索、链接阅读与来源引用。
+- 文件附件、语音输入和回复朗读。
+- Markdown、代码高亮、KaTeX 公式和 Mermaid 图表。
+- 简体中文与英文、浅色与深色主题、历史导入导出。
+- 支持 Windows 和 Android 安装包，无需部署 FullSeek 自有服务器。
+
+## 构建与预览
+
+- Windows 上运行 `pnpm build:windows` 构建安装程序。
+- 运行 `pnpm build:android` 构建 Android debug APK（需要 JDK 21 和 Android SDK）。
+- 也可以在 GitHub Actions 中运行 **Build FullSeek-Chat installers** 工作流构建两种安装包。
+
+本地预览需要 Node.js 22.12+ 和 pnpm：
 
 ```sh
 git clone https://github.com/nothing14yyx/FullSeek-Chat.git
@@ -35,25 +49,12 @@ pnpm install
 pnpm dev
 ```
 
-Open http://localhost:8090.
+然后打开 http://localhost:8090。
 
-## API gateways
+## 问题与支持
 
-DeepSeek is the default gateway. Add your API key in Settings, then select a protocol and gateway. The model field is empty by default; use **Get Models** or enter a model name.
+如有任何问题，欢迎在抖音或小红书搜索“卷福AI分享记录”。感谢大家的支持！
 
-- DeepSeek Responses base URL: `https://api.deepseek.com` (the app calls `/responses`, without a `/v1` prefix).
-- DeepSeek Messages base URL: `https://api.deepseek.com/anthropic` (the app calls `/v1/messages`).
-- Custom gateways can use either the Messages or Responses protocol. Include any required path prefix in the gateway URL.
+## 许可证
 
-## Features
-
-- Multiple conversations, editing, regeneration, and message branches.
-- Streaming replies, deep thinking, search, link reading, and citations.
-- File attachments, voice input, and read-aloud.
-- Markdown, code highlighting, KaTeX, and Mermaid diagrams.
-- Simplified Chinese and English, light and dark themes, and chat history import/export.
-- Windows and Android app packaging; no FullSeek server deployment is required.
-
-## License
-
-FullSeek-Chat is released under the [MIT License](LICENSE). Third-party dependencies are subject to their own licenses.
+FullSeek-Chat 使用 [MIT 许可证](LICENSE)。第三方依赖遵循各自的许可证。

@@ -7,6 +7,7 @@ release/
 .cache/
 *.log
 .DS_Store
+Thumbs.db
 .env
 .env.*
 !.env.example
@@ -20,3 +21,20 @@ key.properties
 *.key
 google-services.json
 tmp/
+
+# Android and Capacitor build outputs and local SDK/signing config
+/android/.gradle/
+/android/**/build/
+/android/capacitor-cordova-android-plugins/
+/android/app/src/main/assets/public/
+/android/app/src/main/assets/capacitor.config.json
+/android/app/src/main/assets/capacitor.plugins.json
+/android/app/src/main/res/xml/config.xml
+/android/local.properties
+/android/key.properties
+*.apk
+*.aar
+*.ap_
+*.aab
+*.dex
+*.class
