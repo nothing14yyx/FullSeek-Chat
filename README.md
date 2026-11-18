@@ -2,7 +2,16 @@
 
 English | [简体中文](README.zh-CN.md)
 
+<p align="center"><img src="src/logo/fullseek-white.svg" width="220" alt="FullSeek-Chat logo"></p>
+
 FullSeek-Chat is an open-source chat client based on [DeepSeek AI's chat-demo](https://github.com/deepseek-ai/chat-demo), adapted for Windows and Android. It is licensed under MIT; see [LICENSE](LICENSE) and the upstream project for attribution.
+
+## Direct downloads
+
+- [Windows x64 installer (.exe)](https://github.com/nothing14yyx/FullSeek-Chat/releases/download/v0.1.1/FullSeek-Chat-Setup-0.1.1.exe)
+- [Android APK](https://github.com/nothing14yyx/FullSeek-Chat/releases/download/v0.1.1/FullSeek-Chat-Android-0.1.1-debug.apk)
+
+The repository is private for now, so these links require GitHub access. They will be directly downloadable by everyone after the repository is made public.
 
 ## Privacy
 
@@ -10,9 +19,8 @@ The FullSeek-Chat application itself does not collect personal information. It h
 
 When you use chat, file, or voice features, the app sends the necessary content directly to the API gateway you configured. FullSeek-Chat does not receive a separate copy. The gateway you choose processes those requests under its own privacy policy.
 
-## Install and build
+## Build
 
-- Download a Windows installer or Android APK from [Releases](https://github.com/nothing14yyx/FullSeek-Chat/releases) when available.
 - On Windows, build an installer with `pnpm build:windows`.
 - Build an Android debug APK with `pnpm build:android` (JDK 21 and Android SDK required).
 - GitHub Actions can build both packages from the **Build FullSeek-Chat installers** workflow.
