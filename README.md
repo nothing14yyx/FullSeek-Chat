@@ -14,8 +14,6 @@ FullSeek-Chat is an open-source chat client based on [DeepSeek AI's chat-demo](h
   <a href="https://github.com/nothing14yyx/FullSeek-Chat/releases/download/v0.1.2/FullSeek-Chat-Android-0.1.2-debug.apk"><strong>Android APK</strong></a>
 </p>
 
-The repository is private for now, so these direct downloads require GitHub access.
-
 ## Privacy
 
 The FullSeek-Chat application itself does not collect personal information. It has no FullSeek data-collection backend or analytics service. API keys and settings are stored in local app storage, and chat history is stored on the device.

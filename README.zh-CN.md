@@ -14,8 +14,6 @@ FullSeek-Chat 是基于 [DeepSeek AI 的 chat-demo](https://github.com/deepseek-
   <a href="https://github.com/nothing14yyx/FullSeek-Chat/releases/download/v0.1.2/FullSeek-Chat-Android-0.1.2-debug.apk"><strong>Android APK</strong></a>
 </p>
 
-仓库目前是私有的，下载需要有权限的 GitHub 账号。
-
 ## 隐私说明
 
 FullSeek-Chat 应用本身不收集个人信息，不设置 FullSeek 数据收集后台，也不包含行为分析服务。API Key 和设置保存在应用本地，会话记录保存在设备上。
