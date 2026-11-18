@@ -1,6 +1,6 @@
 import { ApiError, apiRootUrl, apiUrl, request } from './client.js'
 import { useSettings } from '../settings.js'
-import { DEFAULT_API_ORIGIN } from './config.js'
+import { isDefaultDeepSeekOrigin } from './config.js'
 
 /**
  * 语音接口：
@@ -20,8 +20,7 @@ export const transcribe = async (
   signal?: AbortSignal
 ): Promise<string> => {
   const { apiOrigin, apiProtocol } = useSettings.getState()
-  const responsesAudio =
-    apiProtocol === 'responses' && apiOrigin.replace(/\/+$/, '') !== DEFAULT_API_ORIGIN
+  const responsesAudio = apiProtocol === 'responses' && !isDefaultDeepSeekOrigin(apiOrigin)
   const form = new FormData()
   form.append('file', audio, 'recording.wav')
   if (responsesAudio) {
@@ -62,8 +61,7 @@ export const synthesize = async (
   signal: AbortSignal
 ): Promise<ReadableStream<Uint8Array>> => {
   const { apiOrigin, apiProtocol } = useSettings.getState()
-  const responsesAudio =
-    apiProtocol === 'responses' && apiOrigin.replace(/\/+$/, '') !== DEFAULT_API_ORIGIN
+  const responsesAudio = apiProtocol === 'responses' && !isDefaultDeepSeekOrigin(apiOrigin)
   const response = await request(
     responsesAudio ? apiUrl('/audio/speech') : apiRootUrl('/v1/tools/tts'),
     {

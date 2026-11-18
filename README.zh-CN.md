@@ -6,12 +6,15 @@
 
 FullSeek-Chat 是基于 [DeepSeek AI 的 chat-demo](https://github.com/deepseek-ai/chat-demo) 构建并适配 Windows、Android 的开源聊天客户端，采用 MIT 许可证。详见 [LICENSE](LICENSE) 和上游项目说明。
 
-## 直接下载
+## 下载 FullSeek-Chat
 
-- [Windows x64 安装程序（.exe）](https://github.com/nothing14yyx/FullSeek-Chat/releases/download/v0.1.1/FullSeek-Chat-Setup-0.1.1.exe)
-- [Android APK](https://github.com/nothing14yyx/FullSeek-Chat/releases/download/v0.1.1/FullSeek-Chat-Android-0.1.1-debug.apk)
+<p align="center">
+  <a href="https://github.com/nothing14yyx/FullSeek-Chat/releases/download/v0.1.2/FullSeek-Chat-Setup-0.1.2.exe"><strong>Windows x64 安装包（.exe）</strong></a>
+  &nbsp; · &nbsp;
+  <a href="https://github.com/nothing14yyx/FullSeek-Chat/releases/download/v0.1.2/FullSeek-Chat-Android-0.1.2-debug.apk"><strong>Android APK</strong></a>
+</p>
 
-仓库目前是私有的，下载需要有权限的 GitHub 账号；仓库公开后，其他人也可以直接通过上述链接下载。
+仓库目前是私有的，下载需要有权限的 GitHub 账号。
 
 ## 隐私说明
 

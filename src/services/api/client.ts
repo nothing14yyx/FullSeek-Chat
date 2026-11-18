@@ -11,13 +11,17 @@ import type {
   MessageParam,
   MessageStreamEvent,
 } from './types.js'
-import { DEFAULT_API_ORIGIN } from './config.js'
+import {
+  DEFAULT_API_ORIGIN,
+  getApiRootOrigin,
+  isDefaultDeepSeekOrigin,
+} from './config.js'
 
 const stripTrailingSlash = (value: string) => value.replace(/\/+$/, '')
 
 /** 不带协议版本前缀的地址，用于 DeepSeek 的 /models 与 /v1/tools 接口。 */
 export const apiRootUrl = (path: string): string =>
-  `${stripTrailingSlash(useSettings.getState().apiOrigin)}${path}`
+  `${getApiRootOrigin(useSettings.getState().apiOrigin)}${path}`
 
 /** Messages 使用协议前缀；Responses 直接在配置的 base URL 后追加路由。 */
 export const apiUrl = (path: string): string => {
@@ -115,9 +119,7 @@ const anthropicHeaders = (apiKey: string, beta: boolean): Record<string, string>
 
 const modelsUrl = () => {
   const { apiOrigin } = useSettings.getState()
-  return stripTrailingSlash(apiOrigin) === DEFAULT_API_ORIGIN
-    ? apiRootUrl('/models')
-    : apiUrl('/models')
+  return isDefaultDeepSeekOrigin(apiOrigin) ? apiRootUrl('/models') : apiUrl('/models')
 }
 
 /** 用 GET /models 校验 API Key（不产生费用） */
@@ -300,7 +302,7 @@ const streamResponses = async function* (
   signal: AbortSignal
 ): AsyncGenerator<MessageStreamEvent> {
   const { apiOrigin, responsesModel, search } = useSettings.getState()
-  const usesDeepSeekGateway = stripTrailingSlash(apiOrigin) === DEFAULT_API_ORIGIN
+  const usesDeepSeekGateway = isDefaultDeepSeekOrigin(apiOrigin)
   const tools = usesDeepSeekGateway
     ? body.tools.map((tool) => ({ type: tool.type }))
     : search

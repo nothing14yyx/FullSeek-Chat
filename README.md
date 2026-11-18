@@ -6,12 +6,15 @@ English | [简体中文](README.zh-CN.md)
 
 FullSeek-Chat is an open-source chat client based on [DeepSeek AI's chat-demo](https://github.com/deepseek-ai/chat-demo), adapted for Windows and Android. It is licensed under MIT; see [LICENSE](LICENSE) and the upstream project for attribution.
 
-## Direct downloads
+## Download FullSeek-Chat
 
-- [Windows x64 installer (.exe)](https://github.com/nothing14yyx/FullSeek-Chat/releases/download/v0.1.1/FullSeek-Chat-Setup-0.1.1.exe)
-- [Android APK](https://github.com/nothing14yyx/FullSeek-Chat/releases/download/v0.1.1/FullSeek-Chat-Android-0.1.1-debug.apk)
+<p align="center">
+  <a href="https://github.com/nothing14yyx/FullSeek-Chat/releases/download/v0.1.2/FullSeek-Chat-Setup-0.1.2.exe"><strong>Windows x64 (.exe)</strong></a>
+  &nbsp; · &nbsp;
+  <a href="https://github.com/nothing14yyx/FullSeek-Chat/releases/download/v0.1.2/FullSeek-Chat-Android-0.1.2-debug.apk"><strong>Android APK</strong></a>
+</p>
 
-The repository is private for now, so these links require GitHub access. They will be directly downloadable by everyone after the repository is made public.
+The repository is private for now, so these direct downloads require GitHub access.
 
 ## Privacy
 

@@ -1,6 +1,6 @@
 {
   "name": "fullseek-chat",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "FullSeek-Chat desktop and Android client.",
   "license": "MIT",
   "private": true,
@@ -65,6 +65,7 @@
       "package.json"
     ],
     "win": {
+      "icon": "src/logo/fullseek.ico",
       "target": [
         {
           "target": "nsis",
@@ -78,6 +79,8 @@
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
+      "installerIcon": "src/logo/fullseek.ico",
+      "uninstallerIcon": "src/logo/fullseek.ico",
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true
     }

@@ -108,9 +108,7 @@ export const zh = {
   apiKeyVerificationFailed: '校验失败：{message}',
   apiGatewayLabel: 'API 网关地址',
   apiGatewayDescription:
-    '默认网关连接 DeepSeek。Messages 自定义网关需兼容 Messages / Files 接口和本应用使用的工具接口。',
-  apiGatewayDescriptionResponses:
-    'Responses 请求路径为网关地址后追加 /responses。DeepSeek 网关地址为 https://api.deepseek.com，不带 /v1；其他网关如需版本前缀，请将 /v1 填入地址。',
+    '填写所选 Responses / Messages 协议的 API 网关地址。',
   apiGatewayInvalid: '请输入有效的 HTTPS 网关地址（本机地址可使用 HTTP）',
   apiGatewayReset: '恢复默认',
   apiGatewayFetchModels: '获取模型',

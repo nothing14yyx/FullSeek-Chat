@@ -4,6 +4,7 @@ const path = require('node:path')
 const createWindow = () => {
   const window = new BrowserWindow({
     title: 'FullSeek-Chat',
+    icon: path.join(__dirname, '..', 'dist', 'app-icon.png'),
     width: 1280,
     height: 860,
     minWidth: 860,

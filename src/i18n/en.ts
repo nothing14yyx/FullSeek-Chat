@@ -113,9 +113,7 @@ export const en = {
   apiKeyVerificationFailed: 'Verification failed: {message}',
   apiGatewayLabel: 'API gateway URL',
   apiGatewayDescription:
-    'The default gateway connects to DeepSeek. Custom Messages gateways must support the Messages / Files APIs and the tools used by this app.',
-  apiGatewayDescriptionResponses:
-    'Responses requests append /responses to the gateway URL. The DeepSeek gateway URL is https://api.deepseek.com, without /v1. If another gateway requires a version prefix, include /v1 in its URL.',
+    'Enter the API gateway URL for the selected Responses or Messages protocol.',
   apiGatewayInvalid: 'Enter a valid HTTPS gateway URL (HTTP is allowed for localhost).',
   apiGatewayReset: 'Restore default',
   apiGatewayFetchModels: 'Get models',
