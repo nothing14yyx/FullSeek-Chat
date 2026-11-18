@@ -3,6 +3,7 @@ import { useRef, useState, type ReactNode } from 'react'
 import {
   IconDarkOutline16,
   IconDataOutline16,
+  IconBrowseOutline16,
   IconDownloadOutline16,
   IconFollowsystemOutline16,
   IconLightOutline16,
@@ -38,7 +39,7 @@ import { closeSettings, useSettingsDialog, type SettingsSection } from './settin
 import styles from './Settings.module.css'
 
 /**
- * 设置弹窗：分「通用设置」（主题、语言、朗读音色、位置）与「数据管理」（API Key、导入、导出、删除）。
+ * 设置弹窗：分「通用设置」「数据管理」和「使用说明」。
  * 桌面端为居中弹窗、左侧导航；移动端为底部弹层、导航横排在内容上方
  */
 export const SettingsDialog = () => {
@@ -53,6 +54,11 @@ const sections: { value: SettingsSection; label: TranslationKey; icon: ReactNode
     icon: <IconSettingsOutline16 />,
   },
   { value: 'data', label: 'settingDialogAsideDataOptionLabel', icon: <IconDataOutline16 /> },
+  {
+    value: 'usage',
+    label: 'settingDialogAsideUsageOptionLabel',
+    icon: <IconBrowseOutline16 />,
+  },
 ]
 
 const SettingsContent = () => {
@@ -101,7 +107,7 @@ const SettingsContent = () => {
               <TtsVoiceSetting />
               <LocationSetting />
             </>
-          ) : (
+          ) : section === 'data' ? (
             <>
               <ApiGatewayField />
               <ApiKeyField editor={apiKeyEditor} />
@@ -124,12 +130,42 @@ const SettingsContent = () => {
                 }
               />
             </>
+          ) : (
+            <UsageInfo />
           )}
         </div>
       </Modal>
       {historyImport.file ? <ImportConfirm historyImport={historyImport} /> : null}
       {historyDelete.opened ? <DeleteAllConfirm historyDelete={historyDelete} /> : null}
     </>
+  )
+}
+
+const UsageInfo = () => {
+  const t = useTranslate()
+  return (
+    <div className={styles.usage}>
+      <section className={styles.usageSection}>
+        <h3 className={styles.usageTitle}>{t('usagePrivacyTitle')}</h3>
+        <p className={styles.usageDescription}>{t('usagePrivacyDescription')}</p>
+      </section>
+      <section className={styles.usageSection}>
+        <h3 className={styles.usageTitle}>{t('usageOpenSourceTitle')}</h3>
+        <p className={styles.usageDescription}>{t('usageOpenSourceDescription')}</p>
+        <a
+          className={styles.usageLink}
+          href="https://github.com/deepseek-ai/chat-demo"
+          target="_blank"
+          rel="noreferrer"
+        >
+          {t('usageUpstreamLink')}
+        </a>
+      </section>
+      <section className={styles.usageSection}>
+        <h3 className={styles.usageTitle}>{t('usageSupportTitle')}</h3>
+        <p className={styles.usageDescription}>{t('usageSupportDescription')}</p>
+      </section>
+    </div>
   )
 }
 

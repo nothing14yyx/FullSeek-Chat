@@ -94,6 +94,17 @@ export const zh = {
   settingsLocationRegion: '请选择国家或地区',
   settingDialogAsideGeneralOptionLabel: '通用设置',
   settingDialogAsideDataOptionLabel: '数据管理',
+  settingDialogAsideUsageOptionLabel: '使用说明',
+  usagePrivacyTitle: '隐私说明',
+  usagePrivacyDescription:
+    'FullSeek-Chat 应用不收集用户数据。API Key、设置和会话记录保存在你的设备本地。使用聊天、文件或语音功能时，必要内容会直接发送到你配置的 API 网关。',
+  usageOpenSourceTitle: '开源与透明',
+  usageOpenSourceDescription:
+    'FullSeek-Chat 基于 DeepSeek AI 的 chat-demo 构建，并适配 Windows 和 Android。项目采用 MIT 开源许可证，代码公开，欢迎查看与反馈。',
+  usageUpstreamLink: '查看上游 chat-demo 项目',
+  usageSupportTitle: '问题与反馈',
+  usageSupportDescription:
+    '如有任何问题，欢迎在抖音或小红书搜索“卷福AI分享记录”。感谢大家的支持！',
   avatarMenuSettingsDialogThemeItemLabel: '主题',
   avatarMenuSettingsDialogThemeSelectLightOption: '浅色',
   avatarMenuSettingsDialogThemeSelectDarkOption: '深色',

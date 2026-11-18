@@ -99,6 +99,17 @@ export const en = {
   settingsLocationRegion: 'Select country or region',
   settingDialogAsideGeneralOptionLabel: 'General',
   settingDialogAsideDataOptionLabel: 'Data',
+  settingDialogAsideUsageOptionLabel: 'About & Help',
+  usagePrivacyTitle: 'Privacy',
+  usagePrivacyDescription:
+    'FullSeek-Chat does not collect user data. API keys, settings, and chat history stay on your device. When you use chat, file, or voice features, necessary content is sent directly to the API gateway you configure.',
+  usageOpenSourceTitle: 'Open source and transparency',
+  usageOpenSourceDescription:
+    'FullSeek-Chat is based on DeepSeek AI’s chat-demo and adapted for Windows and Android. The project is open source under the MIT License, and its code is available for review and feedback.',
+  usageUpstreamLink: 'View the upstream chat-demo project',
+  usageSupportTitle: 'Questions and feedback',
+  usageSupportDescription:
+    'For questions or feedback, search for “卷福AI分享记录” on Douyin or Xiaohongshu. Thank you for your support!',
   avatarMenuSettingsDialogThemeItemLabel: 'Theme',
   avatarMenuSettingsDialogThemeSelectLightOption: 'Light',
   avatarMenuSettingsDialogThemeSelectDarkOption: 'Dark',
