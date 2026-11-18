@@ -65,7 +65,7 @@
       "package.json"
     ],
     "win": {
-      "icon": "src/logo/fullseek.ico",
+      "icon": "src/logo/fullseek-white.png",
       "target": [
         {
           "target": "nsis",
@@ -79,8 +79,6 @@
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
-      "installerIcon": "src/logo/fullseek.ico",
-      "uninstallerIcon": "src/logo/fullseek.ico",
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true
     }
