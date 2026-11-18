@@ -9,9 +9,9 @@ FullSeek-Chat 是基于 [DeepSeek AI 的 chat-demo](https://github.com/deepseek-
 ## 下载 FullSeek-Chat
 
 <p align="center">
-  <a href="https://github.com/nothing14yyx/FullSeek-Chat/releases/download/v0.1.2/FullSeek-Chat-Setup-0.1.2.exe"><strong>Windows x64 安装包（.exe）</strong></a>
+  <a href="https://github.com/nothing14yyx/FullSeek-Chat/releases/download/v0.1.3/FullSeek-Chat-Setup-0.1.3.exe"><strong>直接下载 Windows x64 安装包（.exe）</strong></a>
   &nbsp; · &nbsp;
-  <a href="https://github.com/nothing14yyx/FullSeek-Chat/releases/download/v0.1.2/FullSeek-Chat-Android-0.1.2-debug.apk"><strong>Android APK</strong></a>
+  <a href="https://github.com/nothing14yyx/FullSeek-Chat/releases/download/v0.1.3/FullSeek-Chat-Android-0.1.3-debug.apk"><strong>直接下载 Android APK</strong></a>
 </p>
 
 ## 隐私说明

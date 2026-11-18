@@ -9,9 +9,9 @@ FullSeek-Chat is an open-source chat client based on [DeepSeek AI's chat-demo](h
 ## Download FullSeek-Chat
 
 <p align="center">
-  <a href="https://github.com/nothing14yyx/FullSeek-Chat/releases/download/v0.1.2/FullSeek-Chat-Setup-0.1.2.exe"><strong>Windows x64 (.exe)</strong></a>
+  <a href="https://github.com/nothing14yyx/FullSeek-Chat/releases/download/v0.1.3/FullSeek-Chat-Setup-0.1.3.exe"><strong>Download Windows x64 installer (.exe)</strong></a>
   &nbsp; · &nbsp;
-  <a href="https://github.com/nothing14yyx/FullSeek-Chat/releases/download/v0.1.2/FullSeek-Chat-Android-0.1.2-debug.apk"><strong>Android APK</strong></a>
+  <a href="https://github.com/nothing14yyx/FullSeek-Chat/releases/download/v0.1.3/FullSeek-Chat-Android-0.1.3-debug.apk"><strong>Download Android APK</strong></a>
 </p>
 
 ## Privacy

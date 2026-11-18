@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { ApiError, verifyApiKey } from '../../services/api/client.js'
 import { classifyApiError } from '../../services/api/errors.js'
 import { setApiKey } from '../../services/settings.js'
@@ -10,6 +10,7 @@ export const useApiKeyForm = (onSaved?: () => void) => {
   const t = useTranslate()
   const [value, setValue] = useState('')
   const [verifying, setVerifying] = useState(false)
+  const submitting = useRef(false)
   const [failure, setFailure] = useState<{ cause: unknown } | null>(null)
   const cause = failure?.cause
   const error =
@@ -30,9 +31,10 @@ export const useApiKeyForm = (onSaved?: () => void) => {
 
   const submit = async () => {
     const apiKey = value.trim()
-    if (!apiKey || verifying) {
+    if (!apiKey || submitting.current) {
       return
     }
+    submitting.current = true
     setVerifying(true)
     setFailure(null)
     try {
@@ -44,6 +46,7 @@ export const useApiKeyForm = (onSaved?: () => void) => {
     } catch (e) {
       setFailure({ cause: e })
     } finally {
+      submitting.current = false
       setVerifying(false)
     }
   }

@@ -328,29 +328,6 @@
   }
 }
 
-.divider {
-  flex-shrink: 0;
-  width: 1px;
-  height: 20px;
-  background-color: var(--dsw-alias-border-l2);
-}
-
-.confirm {
-  flex-shrink: 0;
-  padding: 0;
-  border: none;
-  background: none;
-  color: var(--dsw-alias-brand-text);
-  font: inherit;
-  line-height: 22px;
-  cursor: pointer;
-
-  &:disabled {
-    color: var(--dsw-alias-label-caption);
-    cursor: default;
-  }
-}
-
 @media not all and (min-width: 768px) {
   .dialog {
     align-self: flex-end;
@@ -468,28 +445,6 @@
 
   .cellButton svg {
     display: none;
-  }
-}
-
-.mobileConfirm {
-  display: block;
-  flex-shrink: 0;
-  width: calc(100% - 16px);
-  height: 52px;
-  margin: 16px 8px 0;
-  border: none;
-  border-radius: 100px;
-  background-color: var(--dsw-alias-button-primary-fill);
-  color: var(--dsw-static-neutral-bluish-00);
-  font: inherit;
-  font-size: 17px;
-  line-height: 24px;
-  font-weight: 500;
-  cursor: pointer;
-
-  &:disabled {
-    opacity: 0.45;
-    cursor: default;
   }
 }
 

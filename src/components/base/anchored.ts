@@ -42,6 +42,8 @@ export type AnchoredOptions = {
    * （如 display: contents），它的 getBoundingClientRect 是空矩形。
    */
   measureFirstChild?: boolean
+  /** 触发器在打开瞬间的坐标；测量元素暂时没有布局尺寸时用作回退 */
+  fallbackRect?: DOMRect | null
   /**
    * 浮层内容标识，变化时在绘制前同步重新测量。内容变化交给 ResizeObserver 会先按
    * 旧位置绘制一帧再回弹，所以需要这个同步入口。
@@ -92,6 +94,7 @@ export const useAnchoredPosition = <T extends HTMLElement, F extends HTMLElement
     maxHeight,
     minSpace = 160,
     measureFirstChild = false,
+    fallbackRect,
     measureKey,
   }: AnchoredOptions = {}
 ) => {
@@ -128,7 +131,9 @@ export const useAnchoredPosition = <T extends HTMLElement, F extends HTMLElement
     if (!anchor || !floating) {
       return
     }
-    const rect = anchor.getBoundingClientRect()
+    const measuredRect = anchor.getBoundingClientRect()
+    const rect =
+      measuredRect.width > 0 && measuredRect.height > 0 ? measuredRect : fallbackRect ?? measuredRect
     const spaceAbove = rect.top - offset - VIEWPORT_PADDING
     const spaceBelow = window.innerHeight - rect.bottom - offset - VIEWPORT_PADDING
 
@@ -154,7 +159,18 @@ export const useAnchoredPosition = <T extends HTMLElement, F extends HTMLElement
       right: Math.max(VIEWPORT_PADDING, window.innerWidth - rect.right),
       maxHeight: height,
     })
-  }, [align, alignOffset, applyPosition, floatingRef, getAnchor, maxHeight, minSpace, offset, side])
+  }, [
+    align,
+    alignOffset,
+    applyPosition,
+    fallbackRect,
+    floatingRef,
+    getAnchor,
+    maxHeight,
+    minSpace,
+    offset,
+    side,
+  ])
 
   // 打开时与内容变化时同步测量，必须在绘制前完成
   useLayoutEffect(() => {

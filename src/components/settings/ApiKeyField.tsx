@@ -7,7 +7,7 @@ import { useApiKeyForm } from './useApiKeyForm.js'
 import { useTranslate } from '../../i18n/index.js'
 import styles from './Settings.module.css'
 
-/** API Key 的编辑状态：输入框与移动端底部的「确定」按钮共用 */
+/** API Key 的编辑状态 */
 export const useApiKeyEditor = () => {
   const apiKey = useSettings((state) => state.apiKey)
   const [editing, setEditing] = useState(false)
@@ -41,60 +41,50 @@ export const ApiKeyField = ({ editor }: { editor: ApiKeyEditor }) => {
           <div className={styles.apiKeyInput}>
             <input
               type="password"
-              placeholder={t('apiKeyPlaceholder')}
+              placeholder={form.verifying ? t('apiKeyVerifying') : t('apiKeyPlaceholder')}
               autoComplete="off"
               spellCheck={false}
+              disabled={form.verifying}
               // 移动端打开设置时不弹键盘，点编辑后才聚焦
               autoFocus={!isMobile || editing}
               value={form.value}
               onChange={(event) => form.setValue(event.target.value)}
+              onPaste={(event) => {
+                const pasted =
+                  event.clipboardData.getData('text/plain') ||
+                  event.clipboardData.getData('text')
+                if (pasted) {
+                  event.preventDefault()
+                  const input = event.currentTarget
+                  const start = input.selectionStart ?? form.value.length
+                  const end = input.selectionEnd ?? start
+                  const nextValue =
+                    form.value.slice(0, start) + pasted + form.value.slice(end)
+                  form.setValue(nextValue)
+                  requestAnimationFrame(() => {
+                    input.focus()
+                    const cursor = start + pasted.length
+                    input.setSelectionRange(cursor, cursor)
+                  })
+                }
+              }}
               onKeyDown={(event) => {
                 if (event.key === 'Enter' && !event.nativeEvent.isComposing) {
                   void form.submit()
                 }
               }}
               onBlur={() => {
-                // 修改时没输入就离开，回到已保存的状态
-                if (apiKey && !form.value.trim()) {
+                if (form.value.trim()) {
+                  void form.submit()
+                } else if (!isMobile && apiKey) {
                   setEditing(false)
                 }
               }}
             />
-            {!isMobile && form.value.trim() ? (
-              <>
-                <span className={styles.divider} />
-                <button
-                  type="button"
-                  className={styles.confirm}
-                  disabled={form.verifying}
-                  // 保持输入框焦点
-                  onMouseDown={(event) => event.preventDefault()}
-                  onClick={() => void form.submit()}
-                >
-                  {form.verifying ? t('apiKeyVerifying') : t('confirm')}
-                </button>
-              </>
-            ) : null}
           </div>
         )}
         {showInput && form.error ? <div className={styles.error}>{form.error}</div> : null}
       </div>
     </div>
   )
-}
-
-/** 移动端：输入 API Key 时在选项下方显示整行「确定」 */
-export const ApiKeyConfirm = ({ editor: { showInput, form } }: { editor: ApiKeyEditor }) => {
-  const t = useTranslate()
-  return showInput && form.value.trim() ? (
-    <button
-      type="button"
-      className={styles.mobileConfirm}
-      disabled={form.verifying}
-      onMouseDown={(event) => event.preventDefault()}
-      onClick={() => void form.submit()}
-    >
-      {form.verifying ? t('apiKeyVerifying') : t('confirm')}
-    </button>
-  ) : null
 }

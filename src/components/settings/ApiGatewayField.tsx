@@ -76,15 +76,13 @@ export const ApiGatewayField = () => {
                 setValue(event.target.value)
                 setError(false)
               }}
+              onBlur={apply}
               onKeyDown={(event) => {
                 if (event.key === 'Enter' && !event.nativeEvent.isComposing) {
                   apply()
                 }
               }}
             />
-            <button type="button" className={styles.gatewayAction} onClick={apply}>
-              {t('confirm')}
-            </button>
             <button
               type="button"
               className={styles.gatewayActionSecondary}

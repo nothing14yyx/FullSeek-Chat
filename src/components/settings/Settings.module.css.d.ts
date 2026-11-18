@@ -31,10 +31,7 @@ declare const styles: {
   readonly "apiKeySaved": string;
   readonly "apiKeyInput": string;
   readonly "apiKeyMask": string;
-  readonly "divider": string;
-  readonly "confirm": string;
   readonly "cellButton": string;
-  readonly "mobileConfirm": string;
   readonly "importConfirm": string;
   readonly "importConfirmText": string;
   readonly "deleteConfirm": string;

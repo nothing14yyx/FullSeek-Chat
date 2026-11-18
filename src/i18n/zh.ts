@@ -114,7 +114,7 @@ export const zh = {
   apiGatewayFetchModels: '获取模型',
   apiGatewayModelsLoading: '获取中…',
   apiGatewaySelectModel: '选择已获取的模型',
-  apiGatewayKeyRequired: '请先在下方填写并保存 API Key。',
+  apiGatewayKeyRequired: '请先在上方填写并保存 API Key。',
   apiGatewayModelFetchFailed: '获取模型失败：{message}',
   apiModelRequired: '请先在设置中获取并选择模型，或手动填写模型名称。',
   contextTrimmedNotice: '为控制上下文，本次请求省略了最早的 {count} 轮对话；完整历史仍保存在本地。',

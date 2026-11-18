@@ -119,7 +119,7 @@ export const en = {
   apiGatewayFetchModels: 'Get models',
   apiGatewayModelsLoading: 'Loading…',
   apiGatewaySelectModel: 'Select a fetched model',
-  apiGatewayKeyRequired: 'Enter and save an API Key below first.',
+  apiGatewayKeyRequired: 'Enter and save an API Key above first.',
   apiGatewayModelFetchFailed: 'Unable to fetch models: {message}',
   apiModelRequired: 'Fetch and select a model in Settings, or enter a model name manually.',
   contextTrimmedNotice:
